@@ -224,7 +224,7 @@ function loadBlogs(){
   blogs.forEach(blog => {
     const card = document.createElement("div");
     card.classList.add("card");
-    card.innerHTML = `<h3>${blog.title}</h3><p>${blog.content}</p>`;
+    card.innerHTML = `<h3>${blog.title}</h3><div>${blog.content}</div>`;
     container.appendChild(card);
   });
 }
