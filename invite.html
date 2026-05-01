@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HosMango</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#000;
+  --white:#fff;
+  --accent:#00ffc6;
+  --yellow:#ffe600;
+}
+
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ font-family:'Space Grotesk',sans-serif;
+}
+
+body{
+ background:#fff;
+ color:#000;
+}
+
+/* CONTAINER FIX */
+.container{
+ max-width:1000px;
+ margin:auto;
+ padding:0 20px;
+}
+
+/* SECTIONS */
+section{
+ padding:80px 0;
+}
+
+/* NAV */
+.nav{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:20px;
+ border-bottom:4px solid black;
+ position:sticky;
+ top:0;
+ background:#fff;
+ z-index:100;
+}
+.nav a{
+ text-decoration:none;
+ color:black;
+ font-weight:bold;
+ margin-left:15px;
+}
+
+/* HERO */
+.hero{
+ background:var(--yellow);
+ border-bottom:5px solid black;
+ text-align:center;
+ padding:120px 20px;
+}
+.hero h1{
+ font-size:2.8rem;
+ max-width:700px;
+ margin:auto;
+}
+.hero p{
+ max-width:600px;
+ margin:20px auto;
+}
+
+/* BUTTON */
+.btn{
+ display:inline-block;
+ padding:14px 24px;
+ border:3px solid black;
+ background:var(--accent);
+ font-weight:bold;
+ cursor:pointer;
+ text-decoration:none;
+}
+.btn:hover{
+ background:black;
+ color:var(--accent);
+ transform:translate(-4px,-4px);
+}
+
+/* GRID */
+.grid{
+ display:grid;
+ gap:20px;
+}
+.grid-3{
+ grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+
+/* CARD */
+.card{
+ border:3px solid black;
+ padding:20px;
+ background:#f8f8f8;
+}
+.card:hover{
+ transform:translate(-4px,-4px);
+}
+
+/* SPLIT */
+.split{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:20px;
+}
+@media(max-width:768px){
+ .split{
+  grid-template-columns:1fr;
+ }
+}
+
+/* DASHBOARD FIX */
+.dashboard{
+ border:4px solid black;
+ padding:20px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+ gap:15px;
+}
+.box{
+ aspect-ratio:16/10;
+ background:var(--accent);
+ border:3px solid black;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ overflow:hidden;
+}
+.box img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+/* PRICING */
+.highlight{
+ background:var(--accent);
+}
+.price{
+ font-weight:bold;
+ font-size:1.4rem;
+}
+
+/* MODAL */
+.modal{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:rgba(0,0,0,0.8);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ opacity:0;
+ pointer-events:none;
+ transition:.3s;
+}
+.modal.active{
+ opacity:1;
+ pointer-events:auto;
+}
+.modal-content{
+ background:#fff;
+ padding:30px;
+ border:4px solid black;
+ text-align:center;
+}
+
+/* FOOTER */
+footer{
+ text-align:center;
+ padding:40px;
+ border-top:4px solid black;
+}
+
+/* MOBILE HERO FIX */
+@media(max-width:768px){
+ .hero h1{
+  font-size:2rem;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+<div><b>HosMango</b></div>
+<div>
+<a href="#features">Features</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<h1>Run Your Hospital Smarter</h1>
+<p>All-in-one system to automate operations, reduce errors, and improve patient care.</p>
+<button class="btn" onclick="openModal()">Book Demo</button>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+<div class="container">
+<h2>Core Features</h2>
+
+<div class="grid grid-3">
+<div class="card">Appointments</div>
+<div class="card">Billing</div>
+<div class="card">EMR</div>
+<div class="card">Lab</div>
+<div class="card">Pharmacy</div>
+<div class="card">Inventory</div>
+</div>
+
+</div>
+</section>
+
+<!-- DASHBOARD -->
+<section>
+<div class="container">
+<h2>Dashboard</h2>
+
+<div class="dashboard">
+<div class="box">
+<img src="Screenshot (205).png">
+</div>
+<div class="box">
+  <img src="Screenshot (207).png">
+</div>
+<div class="box">
+  <img src="Screenshot (208).png">
+</div>
+<div class="box">
+  <img src="Screenshot (209).png">
+</div>
+<div class="box">
+  <img src="Screenshot (210).png">
+</div>
+<div class="box">
+  <img src="Screenshot (211).png">
+</div>
+<div class="box">
+  <img src="Screenshot (212).png">
+</div>
+<div class="box">
+  <img src="Screenshot (213).png">
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+<div class="container">
+
+<h2>Pricing</h2>
+
+<div class="grid grid-3">
+<div class="card">
+<h3>Starter</h3>
+<p class="price">₹999</p>
+</div>
+
+<div class="card highlight">
+<h3>Pro</h3>
+<p class="price">₹1999</p>
+</div>
+
+<div class="card">
+<h3>Enterprise</h3>
+<p class="price">₹4999</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="hero">
+<div class="container">
+<h2>Start Today</h2>
+<button class="btn" onclick="openModal()">Get Started</button>
+</div>
+</section>
+
+<footer>
+<p>© 2026 HosMango</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<h2>Contact</h2>
+<p>Email: progprospectacademy@gmail.com</p>
+
+<button class="btn" onclick="closeModal()">Close</button>
+</div>
+</div>
+
+<script>
+function openModal(){
+ document.getElementById("modal").classList.add("active");
+}
+function closeModal(){
+ document.getElementById("modal").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
